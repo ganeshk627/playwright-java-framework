@@ -35,6 +35,7 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void TC02_login(){
+        homePage.openPage();
         homePage.login("Admin", "admin123");
     }
 }

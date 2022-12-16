@@ -18,7 +18,7 @@ public class DashBoardPage {
     public HomePage logout(){
         page.locator(USER_DROPDOWN).click();
         page.click(LOGOUT);
-        return new HomePage(page);
+        return new HomePage(page); //Page chaining
     }
     
 }

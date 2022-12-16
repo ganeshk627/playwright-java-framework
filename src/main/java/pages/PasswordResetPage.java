@@ -21,8 +21,6 @@ public class PasswordResetPage {
         page.click(RESET_PASSWORD);
         assertThat(page.locator(RESET_PASSWORD_MESSAGE))
                 .containsText(AppConstants.PASSWORD_RESET_MESSAGE);
-        page.goBack();
-        page.goBack();
     }
 
 }

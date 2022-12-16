@@ -1,6 +1,7 @@
 package pages;
 
 import com.microsoft.playwright.Page;
+import factory.PlaywrightFactory;
 
 public class HomePage {
     private Page page;
@@ -23,12 +24,17 @@ public class HomePage {
 //        page.locator(PASSWORD).clear();
         page.locator(PASSWORD).fill(password);
         page.locator(LOGIN).click();
-        return new DashBoardPage(page);
+        return new DashBoardPage(page); //Page chaining
     }
 
     public PasswordResetPage clickForgotPasword() {
         page.click(FORGOT_PASSWORD);
-        return new PasswordResetPage(page);
+        return new PasswordResetPage(page); //Page chaining
+    }
+
+    public HomePage openPage(){
+        page.navigate(new PlaywrightFactory().initProperties().getProperty("url"));
+        return new HomePage(page);
     }
 
 
