@@ -1,9 +1,6 @@
 package pages;
 
 import com.microsoft.playwright.Page;
-import contants.AppConstants;
-
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 public class HomePage {
     private Page page;
