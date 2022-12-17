@@ -2,6 +2,7 @@ package listeners;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 import java.io.IOException;
@@ -94,12 +95,14 @@ public class ExtentReportListener implements ITestListener {
     public synchronized void onTestSuccess(ITestResult result) {
         System.out.println((result.getMethod().getMethodName() + " passed!"));
         test.get().pass("Test passed!");
+//        test.get().pass(result.getThrowable(),MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot()).build());
         test.get().getModel().setEndTime(getTime(result.getEndMillis()));
     }
 
     public synchronized void onTestFailure(ITestResult result) {
         System.out.println((result.getMethod().getMethodName() + " failed!"));
         test.get().fail("Test failed!");
+        test.get().fail(result.getThrowable(),MediaEntityBuilder.createScreenCaptureFromPath(takeScreenshot()).build());
         test.get().getModel().setEndTime(getTime(result.getEndMillis()));
     }
 
