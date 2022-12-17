@@ -94,12 +94,10 @@ public class PlaywrightFactory {
     }
 
     public static String takeScreenshot() {
-        // made some changes to make work with my machine
-        String path = System.getProperty("user.dir");
-        String fileName = "/screenshots/" + System.currentTimeMillis() + ".png";
+        String path = System.getProperty("user.dir") + "/screenshots/" + System.currentTimeMillis() + ".png";
         getPageThreadLocal().screenshot(new Page.ScreenshotOptions()
-                .setPath(Paths.get(path+fileName))
+                .setPath(Paths.get(path))
                 .setFullPage(true));
-        return fileName;
+        return path;
     }
 }
