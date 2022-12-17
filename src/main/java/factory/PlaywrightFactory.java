@@ -4,6 +4,7 @@ import com.microsoft.playwright.*;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 public class PlaywrightFactory {
@@ -90,5 +91,15 @@ public class PlaywrightFactory {
             e.printStackTrace();
         }
         return properties;
+    }
+
+    public static String takeScreenshot() {
+        // made some changes to make work with my machine
+        String path = System.getProperty("user.dir");
+        String fileName = "/screenshots/" + System.currentTimeMillis() + ".png";
+        getPageThreadLocal().screenshot(new Page.ScreenshotOptions()
+                .setPath(Paths.get(path+fileName))
+                .setFullPage(true));
+        return fileName;
     }
 }
