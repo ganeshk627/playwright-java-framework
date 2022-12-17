@@ -35,7 +35,12 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void TC02_login(){
-        homePage.openPage();
-        homePage.login("Admin", "admin123");
+//        homePage.openPage();
+        dashBoardPage= homePage.login("Admin", "admin123");
+    }
+
+    @Test
+    public void TC03_logout(){
+        dashBoardPage.logout();
     }
 }
