@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Automation Tests">
-    <listeners><listener class-name="listeners.ExtentReportListener"></listener></listeners>
+    <parameter name="browser" value="chrome"/>
+    <listeners>
+        <listener class-name="listeners.ExtentReportListener"></listener>
+    </listeners>
     <test verbose="2" preserve-order="true"
           name="Smoke">
         <classes>

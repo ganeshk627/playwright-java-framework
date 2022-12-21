@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Automation Tests" thread-count="2" parallel="tests">
+<suite name="Automation Tests" thread-count="2" parallel="classes">
     <test verbose="2" preserve-order="true"
           name="Test1">
+        <parameter name="browser" value="chrome"/>
         <classes>
             <class name="tests.LoginTest"></class>
         </classes>
@@ -10,8 +11,9 @@
 
     <test verbose="2" preserve-order="true"
           name="Test2">
+        <parameter name="browser" value="chromium"/>
         <classes>
-            <class name="tests.LoginTest"></class>
+            <class name="tests.HomepageTest"></class>
         </classes>
     </test>
 </suite>
